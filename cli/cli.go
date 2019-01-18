@@ -5,14 +5,14 @@ import (
 	"context"
 	
 	"google.golang.org/grpc"
-	ns "../names"
+	ns "github.com/samatkuandykov/grpc-server/names"
 )
 
 var empty ns.Empty
+var grpcServer = ":8082"
 
 func main() {
-	grpcServer := "localhost:8082"
-	conn, err := grpc.Dial(grpcServer, grpc.WithInsecure())
+	conn, err := grpc.Dial("localhost" + grpcServer, grpc.WithInsecure())
 	if err != nil {
 		fmt.Println("error connecting grpc: ", err)
 	}
