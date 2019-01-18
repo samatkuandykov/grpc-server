@@ -1,6 +1,8 @@
 syntax = "proto3";
 package names;
 
+import "google/api/annotations.proto";
+
 message Name {
     string name = 1;
 };
@@ -15,7 +17,16 @@ message Empty {
 
 service NameService {
     // Get all names that user has entered
-    rpc GetAllNames(Empty) returns (Names) {}
+    rpc GetAllNames(Empty) returns (Names) {
+        option (google.api.http) = {
+            get: "/names"
+        };
+    };
     // Add a new name
-    rpc AddName(Name) returns (Name) {}
+    rpc AddName(Name) returns (Name) {
+        option (google.api.http) = {
+            post: "/names"
+            body: "*"
+        };
+    }
 }
