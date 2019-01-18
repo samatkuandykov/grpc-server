@@ -1,0 +1,21 @@
+syntax = "proto3";
+package names;
+
+message Name {
+    string name = 1;
+};
+
+message Names {
+    repeated Name name = 1;
+};
+
+message Empty {
+    // Empty message
+};
+
+service NameService {
+    // Get all names that user has entered
+    rpc GetAllNames(Empty) returns (Names) {}
+    // Add a new name
+    rpc AddName(Name) returns (Name) {}
+}
