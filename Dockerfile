@@ -8,4 +8,4 @@ RUN go get -u github.com/grpc-ecosystem/grpc-gateway/runtime
 RUN go get -u github.com/grpc-ecosystem/grpc-gateway/utilities
 RUN go install github.com/samatkuandykov/grpc-server
 ENTRYPOINT ["/go/bin/grpc-server"]
-EXPOSE 8081
+EXPOSE 8081 8082
